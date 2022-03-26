@@ -1,0 +1,20 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"little_body_link" [label="little_body_link"];
+"little_wheel_link" [label="little_wheel_link"];
+"right_wheel_link" [label="right_wheel_link"];
+"left_wheel_link" [label="left_wheel_link"];
+"lidar_scaner_link" [label="lidar_scaner_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "body_link" [label="xyz: 0.1975 0.38084 0.017124 \nrpy: 1.5708 -0 1.5708"]
+"body_link" -> "little_body_link"
+"little_body_link" -> "little_link" [label="xyz: 0 0.01 0 \nrpy: 0 0 -0.50973"]
+"little_link" -> "little_wheel_link"
+"base_link" -> "fight_link" [label="xyz: 0.337 0.035844 0.11868 \nrpy: 2.9765 -0 -3.14159"]
+"fight_link" -> "right_wheel_link"
+"base_link" -> "left_link" [label="xyz: 0 0.035844 0.11868 \nrpy: -2.1829 0 0"]
+"left_link" -> "left_wheel_link"
+"base_link" -> "lidar_link" [label="xyz: 0.1975 0.035844 0.31868 \nrpy: 0 -0 0.79166"]
+"lidar_link" -> "lidar_scaner_link"
+}

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rtvfin" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find rtvfin)/urdf/robots.gazebo.xacro" /> 
+  <link name="dummy">
+   </link>
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="0.1975 0.14943 -0.17868"
+        rpy="0 0 0" />
+      <mass
+        value="6.851" />
+      <inertia
+        ixx="0.13782"
+        ixy="-1.1943E-17"
+        ixz="6.9346E-17"
+        iyy="0.18627"
+        iyz="-0.010532"
+        izz="0.06655" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.87843 0.16471 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="dummy_joint" type="fixed">
+     <parent link="dummy"/>
+     <child link="base_link"/>
+  </joint>
+  <link name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.025442562384682 0 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.23208588786701" />
+      <inertia
+        ixx="0.0150507702527097"
+        ixy="-7.83936393224049E-19"
+        ixz="9.01679053389912E-19"
+        iyy="0.00801207149472829"
+        iyz="-6.50521303491303E-19"
+        izz="0.00801207149472829" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_link"
+    type="continuous">
+    <origin
+      xyz="0 0.035844 0.11868"
+      rpy="-2.1829 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.083442562384682 -2.08166817117217E-17 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.23208588786701" />
+      <inertia
+        ixx="0.0150507702527097"
+        ixy="1.04707723527385E-18"
+        ixz="4.47140523783489E-19"
+        iyy="0.0080120714947283"
+        iyz="0"
+        izz="0.0080120714947283" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_link"
+    type="continuous">
+    <origin
+      xyz="0.337 0.035844 0.11868"
+      rpy="2.9765 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link name="little_body_link">
+    <inertial>
+      <origin
+        xyz="-2.67674771237125E-13 0.0459540094478621 -7.64113969988212E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0309195136006862" />
+      <inertia
+        ixx="4.25932255697471E-05"
+        ixy="-7.90156577307605E-17"
+        ixz="-2.31994972687621E-14"
+        iyy="7.40957987340259E-06"
+        iyz="-2.25518117414848E-08"
+        izz="3.59714206217553E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/little_body_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0392156862745098 1 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/little_body_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="body_link"
+    type="fixed">
+    <origin
+      xyz="0.1975 0.38084 0.017124"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="little_body_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link name="little_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.00121984656174834 -0.00218219485055544 -9.37075362563156E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.105305674206665" />
+      <inertia
+        ixx="3.75986355552618E-05"
+        ixy="0"
+        ixz="4.8958160903679E-14"
+        iyy="3.75986355552618E-05"
+        iyz="2.73676072745913E-14"
+        izz="5.36078275271206E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/little_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/little_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="little_link"
+    type="continuous">
+    <origin
+      xyz="0 0.01 0"
+      rpy="0 0 -0.50973" />
+    <parent
+      link="little_body_link" />
+    <child
+      link="little_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link name="lidar_scaner_link">
+    <inertial>
+      <origin
+        xyz="0 -4.16333634234434E-17 0.0342165768302536"
+        rpy="0 0 0" />
+      <mass
+        value="0.491430460551325" />
+      <inertia
+        ixx="0.000499328268367785"
+        ixy="0"
+        ixz="4.35781389685268E-20"
+        iyy="0.000499328268367785"
+        iyz="-3.36563846024757E-21"
+        izz="0.00051728611281361" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/lidar_scaner_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rtvfin/meshes/lidar_scaner_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lidar_link"
+    type="fixed">
+    <origin
+      xyz="0.1975 0.035844 0.31868"
+      rpy="0 0 0.79166" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_scaner_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>

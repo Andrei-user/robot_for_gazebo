@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'left_link', 'right_link', 'body_link', 'little_link', 'lidar_link', ]
